@@ -1,0 +1,336 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2576
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Italic;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14280\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs20 \cf2 \expnd0\expndtw0\kerning0
+	\'91\'92\'92 https://medium.com/cyberdoggo/mit-6-00-1x-problem-set-1-c5ba79ae2aad \'91\'92\'92\cf0 \kerning1\expnd0\expndtw0 \
+
+\f1\fs24 \
+\
+
+\f2\i\fs22 \cf2 \expnd0\expndtw0\kerning0
+	Warning: these solutions are not the best solutions or the \'93right\'94 solutions. \
+\pard\pardeftab720\partightenfactor0
+
+\f3\i0\b\fs24 \cf2 \
+\
+\ul Problem 1\
+
+\f0\b0 \ulnone \
+	# Assume s is a string of lower case characters.\
+	# Write a program that counts up the number of vowels contained in the string s.\
+	# Valid vowels are: 'a', 'e', 'i', 'o', and 'u'.\
+	# For example, if s = 'azcbobobegghakl', your program should print:\
+		\'91\'92\'92\
+		Number of vowels: 5\
+		\'91\'92\'92\
+\
+This problem is basically just to check you know the basic concepts of conditional statements. Python, like many programming languages, allows you to create if-else expressions that perform certain computations depending on whether a Boolean condition evaluates to True or False.\
+\
+Lets say I want to create a program that prints out whether an ice cream store has ice cream in stock.\
+\
+First we define a variable called iceCreamAvailable and set it to True.\
+\
+	\'91\'92\'92\
+	iceCreamAvailable = True\
+	\'91\'92\'92\
+\
+One cool thing about Python is that you don\'92t have specify a data type preceding your variable declaration. Whether we set our variable to a Boolean value, an integer, a float, or a string, we would simply just need to change the value right of the equal sign. Some programming languages on the other hand like C don\'92t even have a built-in Boolean data type (C is still awesome).\
+\
+The next part of our program is setting up our if-else expression to run depending on whether iceCreamAvailable is equal to true or false.\
+\
+	\'91\'92\'92\
+	if iceCreamAvailable == True:\
+    		# print statement 1\
+	else:\
+    		# print statement 2\
+	\'91\'92\'92\
+\
+If the value of iceCreamAvailable is equal to true here, we will then print statement 1. If iceCreamAvailable evaluates to any other value, it will print statement 2. If I wanted to be more specific for statement 2, I could have used an elif statement like this:\
+	\'91\'92\'92\
+	elif iceCreamAvailable == False:\
+   		# print statement 2\
+	\'91\'92\'92\
+\
+Due to the fact that the Boolean data type can only evaluate to two values though, the elif is unnecessary. In fact, here I could even remove the double equals sign as if statements automatically evaluate any non-zero and non-null values as True.\
+\
+	\'91\'92\'92\
+	if iceCreamAvailable: \
+   		# print statement 1\
+	\'91\'92\'92\
+\
+This just makes our a code a little bit more concise and easier to read. I like it.\
+\
+Finally for our little example program, we want to print our statements. To do this we will use the built in function print. If you\'92re a complete beginner you probably don\'92t know what a function is yet. If you weren\'92t asleep in high school algebra though, you probably have a vague idea of what one is. Basically print just takes in an argument, and prints or outputs it to the shell. This is our first glimpse into the concept of input and output or as nerds call it: IO.\
+\
+For instance:\
+	\'91\'92\'92\
+	print("Hello doggo")\
+	\'91\'92\'92\
+\
+Would print out to the shell:\
+	\'91\'92\'92\
+	Hello doggo\
+	\'91\'92\'92\
+\
+So now our entire iceCream program would look a little like this:\
+	\'91\'92\'92\
+	iceCreamAvailable = True\
+	\
+	if iceCreamAvailable:\
+    		print("Come get some ice cream!"\
+	else:\
+    		print("We're all out!")\
+	\'91\'92\'92\
+\
+So let\'92s get back to our first problem. It\'92s really not that different from our example program we just made. The only difference is here we are going to use a for loop to repeat our conditional statements a certain number of times. Let\'92s first set up a variable called vowelCount and set it to zero in order to keep track of the number of vowels in a string.\
+\
+	\'91\'92\'92\
+	vowelCount = 0\
+	\'91\'92\'92\
+\
+Next we need to set up our for loop. There\'92s a several ways of doing this. Here are two of them.\
+\
+	\'91\'92\'92\
+	for index in range(len(string)):\
+	\'91\'92\'92\
+\
+This first iterates over a range from 0 to the length of string. That means index here will be equal to an integer every single iteration of the loop.\
+Let\'92s try to count just the vowel \'93a\'94 first by.\
+\
+	\'91\'92\'92\
+	for index in range(len(string)):\
+   		if string[index] == 'a':\
+      		# increment vowelCount\
+	\'91\'92\'92\
+\
+Here, we are accessing each character of the string through its index and then checking to see if it is matches \'91a\'92. If the character does match \'91a\'92, we then carryout whatever is inside our if block.\
+\
+An easier and more readable way to write this code is to access the characters directly instead of going through the index of the string.\
+\
+	\'91\'92\'92\
+	for letter in string:\
+	\'91\'92\'92\
+\
+I know. Pretty nice looking right? It reads like English and you don\'92t have to use the range or len functions.\
+\
+Finally we want to increase our VowelCount variable count by one inside our conditional statements. We can do this once again in a couple ways.\
+\
+	\'91\'92\'92\
+	vowelCount = vowelCount + 1\
+	\'91\'92\'92\
+\
+or\
+\
+	\'91\'92\'92\
+	vowelCount += 1\
+	\'91\'92\'92\
+\
+I\'92ll will use the second one going forward.\
+\
+Alright now that we have all our little bits to this problem figured out, let\'92s put it all together.\
+\
+	\'91\'92\'92\
+	# variable s is predefined\
+	# define and set variable vowelCount to 0\
+	vowelCount = 0\
+	# create a for loop to iterate through each character of s\
+	for letter in s:\
+    		# if letter in s equal to each vowel, increment vowelCount by 1\
+    		if letter == "a":\
+        		vowelCount += 1\
+    		elif letter == "e":\
+        		vowelCount += 1\
+    		elif letter == "i":\
+        		vowelCount += 1\
+    		elif letter == "o":\
+        		vowelCount += 1\
+    		elif letter == "u":\
+        		vowelCount += 1\
+	# print the concatenated first string and vowelCount\
+	print("Number of vowels: " + str(vowelCount))\
+	\'91\'92\'92\
+\
+Boom. First problem down. Not that bad at all right?\
+\
+\
+
+\f3\b \ul Problem 2\
+
+\f0\b0\fs22 \ulnone \
+	# Assume s is a string of lower case characters.\
+	# Write a program that prints the number of times the string 'bob' occurs in s.\
+	# For example, if s = 'azcbobobegghakl', then your program should print\
+		\'91\'92\'92\
+		Number of times bob occurs is: 2\
+		\'91\'92\'92\
+\
+Okay this one is a little bit harder but it\'92s not that difficult once you get your head around the concept of accessing substrings through a string\'92s index. What the heck do I mean by that? Here\'92s a little example:\
+	\'91\'92\'92\
+	name = "cyberdoggo"\
+	lastName = name[5:]\
+	\'91\'92\'92\
+\
+If we print lastName, we get:\
+	\'91\'92\'92\
+	doggo\
+	\'91\'92\'92\
+\
+Here what we have to do is iterate through the string accessing substrings s[i:i+3) until we find a substring that matches \'93bob\'94\
+\
+I\'92ll show what you I mean by that if it still sounds like mumbo jumbo.\
+\
+First lets define and set a variable bobCount to 0. This variable will have the same purpose the variable vowelCount had in the first program.\
+\
+	\'91\'92\'92\
+	bobCount = 0\
+	\'91\'92\'92\
+\
+Here\'92s where it gets a little complicated. First let\'92s create our for loop:\
+\
+	\'91\'92\'92\
+	for i in range(len(s)):\
+	\'91\'92\'92\
+\
+This once again just iterates a range from 0 to the length of s.\
+\
+Next we need to create our conditional statement to match a substring to \'93bob\'94:\
+	\'91\'92\'92\
+	if (s[i:i+3] == 'bob'):\
+    		# a statement\
+	\'91\'92\'92\
+\
+This checks to see if the substring created from s[i:i+3] is equal to \'93bob\'94 as the name bob has a length of three characters and therefor requires the substring to be a length of three. So if s = \'91azcbobobegghakl\'92, the first substring s[0:3] would be equal to \'91azc.\'92 Since \'91azc\'92 does equal \'91bob\'92, the statement within the if expression would not be executed.\
+\
+Alright the hardest part here is done. Now we just need to increment bobCount by one within the if statement.\
+\
+	\'91\'92\'92\
+	bobCount += 1\
+	\'91\'92\'92\
+\
+Now let\'92s put it all together:\
+	\'91\'92\'92\
+	# s is a predefined string\
+	# define and set bobCount to 0\
+	bobCount = 0\
+	# iterate through the range from 0 to the length of s\
+	for i in range(len(s)):\
+  		# check to see if the substring accessed is equal to 'bob'\
+  		if (s[i:i+3] == 'bob'):\
+      		bobCount += 1\
+	print("Number of times bob occurs is: " + str(bobCount))\
+	\'91\'92\'92\
+\
+Creating comments by the way is a great habit to pick up early. If you end up working with other people, comments are incredibly vital to making sure your coworkers can understand your code easily. Don\'92t be \'93that guy\'94 or \'93that girl.\'94\
+\
+\
+
+\f3\b\fs24 \ul Problem 3\
+
+\fs22 \
+
+\f0\b0 \ulnone 	# Assume s is a string of lower case characters.\
+	# Write a program that prints the longest substring of s in which the letters occur in alphabetical order.\
+	# For example, if s = 'azcbobobegghakl', then your program should print\
+		\'91\'92\'92\
+		Longest substring in alphabetical order is: beggh\
+		\'91\'92\'92\
+	# In the case of ties, print the first substring. For example, if s = 'abcbcd', then your program should print\
+	# Longest substring in alphabetical order is: abc\
+\
+This problem sucks until you get it. Then it\'92s not so bad. What do I mean by \'93get it\'94? I\'92ll show you.\
+First let\'92s setup a little example:\
+	\'91\'92\'92\
+	letters = "abc"\
+	print(letters[1] > letters[0])\
+	\'91\'92\'92\
+\
+If we run this program we get:\
+	\'91\'92\'92\
+	True\
+	\'91\'92\'92\
+\
+I know what you\'92re thinking. \'93Why did that work?\'94 Well let\'92s try something else. Enter this statement into your Python shell.\
+\
+	\'91\'92\'92\
+	print(ord(\'91a\'92))\
+	\'91\'92\'92\
+\
+You should get the number 97. What ord() is doing is converting the character \'91a\'92 to its corresponding ASCII numeric value. ASCII is basically just the standard for character encoding. I won\'92t go too much into this as I would have to write something the length of a Wikipedia article to fully explain it. Fortunately though, someone already wrote a great article there. It\'92s okay if you don\'92t get much. I only understand about a quarter of it.\
+\
+So now that we know we can compare characters against each other, this problem should become a lot easier to grasp.\
+\
+First let\'92s define two variables called and longest. You can just set them to empty strings. I explain these later don\'92t worry.\
+\
+	\'91\'92\'92\
+	current = ''\
+	longest = ''\
+	\'91\'92\'92\
+\
+Now let\'92s set up our for loop to iterate over our string as per usual:\
+	\'91\'92\'92\
+	for i in range(len(s)):\
+	\'91\'92\'92\
+\
+Here\'92s where it gets fun:\
+	\'91\'92\'92\
+	if (s[i] >= s[i-1]):\
+		current += s[i]\
+	else:\
+		current = s[i]\
+	\'91\'92\'92\
+\
+Our if statement checks to see if the current character, s[i], is greater than the previous character, s[i-1], in the string. So if s[i] is greater than or equal to s[i-1], it gets added to the string current as s[i] is ahead of s[i-1] in the alphabet. However, if s[i] is before s[i-1] in the alphabet, we need to reset the string current and set it to the value of s[i].\
+\
+The problem though right now is that we are not finding the longest alphabetical substring in s, we are simply finding the last alphabetical substring in s. This is where the variable longest we defined earlier comes into play. Below our if-else block, we need to create another if statement that sets longest to the string of current if the length of current is greater than longest. Let\'92s use that len() function we\'92ve used before in our for loops.\
+\
+	\'91\'92\'92\
+	if len(current) > len(longest):\
+    		longest = current\
+	\'91\'92\'92\
+\
+That\'92s pretty much it. Now for the last time, let\'92s put it all together:\
+	\'91\'92\'92\
+	# s is predefined variable set to a string value\
+	current = ''\
+	longest = ''\
+	for i in range(len(s)):\
+		if (s[i] >= s[i-1]):\
+			current += s[i]\
+		else:\
+			current = s[i]\
+		if len(current) > len(longest):\
+			longest = current\
+	print("Longest substring in alphabetical order is: " + longest)\
+	\'91\'92\'92\
+\
+Overall, that wasn\'92t too bad. Now you can say you\'92ve completed an MIT problem set! One thing to note is that while my programs completed all of tests MIT put into their grading platform, they are not perfect. When writing code you should always try to make your programs as modular as possible. Always try to look for new ways your program could fail. If you can do that, you are officially more of a hacker than anyone on CSI: GreenTerminals.\
+\
+See you next time.\
+\
+
+\fs24 \
+
+\f3\b \ul MY OWN SOLUTIONS\
+\
+\ulnone Problem 1\
+
+\f0\b0\fs22 \
+	\'91\'92\'92\
+	count = 0\
+\
+	for char in s:\
+		if char in "aeiou":\
+			count +=1\
+	print('Number of vowels: ' + str(count))\
+	\'91\'92\'92\
+\
+Problem 2\
+\
+\
+Problem 3\
+}
